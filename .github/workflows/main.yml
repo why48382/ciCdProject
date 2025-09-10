@@ -48,6 +48,6 @@ jobs:
           password: qwer1234
           port: 103
           script: |
-            docker rm -f buildstudy  
+            docker rm -f buildstudy
             docker image prune -f  
-            docker run -d --name buildstudy -p 8080:8080 buildstudy:test.ver
+            docker run -d --name buildstudy -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/buildstudy:test.ver
