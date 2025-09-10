@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitback:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitback:test.ver
 
 
   deploy:
@@ -51,4 +51,4 @@ jobs:
             docker rm -f gitback  
             docker image prune -f  
             docker image build -t gitback:latest .  
-            docker run -d --name gitback -p 8080:8080 gitback:latest
+            docker run -d --name gitback -p 8080:8080 gitback:test.ver
