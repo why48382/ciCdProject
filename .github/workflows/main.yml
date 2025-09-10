@@ -1,10 +1,10 @@
 name: project deployment
 on:
   push:
-    branches: [master]
+    branches: [ master ]
 jobs:
-  deploy:
-    name: deploy
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,3 +33,22 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitback:latest
+
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: run ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 121.140.125.176
+          username: test
+          password: qwer1234
+          port: 103
+          script: |
+            docker rm -f gitback  
+            docker image prune -f  
+            docker image build -t gitback:latest .  
+            docker run -d --name gitback -p 8080:8080 gitback:latest
