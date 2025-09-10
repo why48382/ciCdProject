@@ -18,6 +18,7 @@ jobs:
             rm -rf ./ciCdProject
             git clone https://github.com/why48382/ciCdProject
             cd ./ciCdProject
+            chmod 755 ./gradlew
             ./gradlew bootJar
             docker rm -f gitback
             docker image prune -f
