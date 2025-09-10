@@ -17,7 +17,7 @@ jobs:
           script: |
             echo test > /tmp/test
             git clone https://github.com/why48382/ciCdProject
-            cd ciCdProject
+            cd /home/test/ciCdProject/
             ./gradlew bootJar
             docker image build -t gitback:latest .
             docker run -d -p 8080:8080 --name gitback gitback:latest
