@@ -70,7 +70,6 @@ jobs:
                 sleep 5
             done
 
-            chmod 777 
             sed -i "s/$OLD_PORT/$NEW_PORT/g" /etc/nginx/sites-enabled/default
             nginx -s reload
 

@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello(){
-        return ResponseEntity.ok("hello4");
+        return ResponseEntity.ok("hello5");
     }
 
     // 푸쉬 테스트 위한 주석
