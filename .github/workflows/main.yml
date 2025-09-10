@@ -15,4 +15,8 @@ jobs:
           password: qwer1234
           port: 103
           script: |
-            echo test > /tmp/test
+            git clone https://github.com/why48382/ciCdProject
+            cd ciCdProject
+            ./gradlew bootJar
+            docker image build -t gitback:latest .
+            docker run -d -p 8080:8080 --name gitback gitback:latest
