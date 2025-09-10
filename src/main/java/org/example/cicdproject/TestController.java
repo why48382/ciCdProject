@@ -10,7 +10,7 @@ public class TestController {
 
     @GetMapping("/hello")
     public String hello(){
-        return "hello2";
+        return "hello3";
     }
 
     // 푸쉬 테스트 위한 주석
