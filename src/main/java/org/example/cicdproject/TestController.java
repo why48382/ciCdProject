@@ -1,5 +1,6 @@
 package org.example.cicdproject;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/hello")
-    public String hello(){
-        return "hello3";
+    public ResponseEntity<String> hello(){
+        return ResponseEntity.ok("hello4");
     }
 
     // 푸쉬 테스트 위한 주석
