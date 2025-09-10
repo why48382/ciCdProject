@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: gitback:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gitback:latest
