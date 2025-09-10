@@ -50,5 +50,5 @@ jobs:
           script: |
             docker rm -f buildstudy  
             docker image prune -f  
-            docker image build -t buildstudy:latest .  
+            docker image build -t buildstudy:test.ver .  
             docker run -d --name buildstudy -p 8080:8080 buildstudy:test.ver
